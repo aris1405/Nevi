@@ -245,9 +245,9 @@ tr:hover td{background:rgba(45,106,79,.03)}
 
 <script>
 /* =====================================================================
-   REVISI v2.9 - Ultimate Auto-Fix (Mencari semua folder & ekstensi)
+   REVISI v2.10 - Foto produk disesuaikan persis dengan daftar upload
    ===================================================================== */
-const APP_VERSION = '2.9-ultimate-autofix';
+const APP_VERSION = '2.10-foto-sesuai';
 
 const escapeHtml = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -260,29 +260,29 @@ const DATA_SABANG = {
 };
 
 const NEW_PRODUCTS = [
-    { id:'PRD001', nama:'Banner EcoPrint 1', kategori:'Kain/Bahan Ecoprint', harga:150000, stok:10, foto:'src/produk/banner ecoPrint1.jpeg', deskripsi:'Kain ecoprint motif banner eksklusif, cocok untuk dekorasi ruangan maupun bahan fashion kreatif.' },
+    { id:'PRD001', nama:'Banner EcoPrint 1', kategori:'Kain/Bahan Ecoprint', harga:150000, stok:10, foto:'src/produk/banner ecoPrint1.jpg', deskripsi:'Kain ecoprint motif banner eksklusif, cocok untuk dekorasi ruangan maupun bahan fashion kreatif.' },
     { id:'PRD002', nama:'Banner Ecoprint 3', kategori:'Kain/Bahan Ecoprint', harga:150000, stok:10, foto:'src/produk/Banner ecoprint-3.jpeg', deskripsi:'Banner ecoprint dengan motif daun alami khas Sabang.' },
-    { id:'PRD003', nama:'Banner Ecoprint 2', kategori:'Kain/Bahan Ecoprint', harga:150000, stok:10, foto:'src/produk/banner ecoprnit 2.jpeg', deskripsi:'Kain banner ecoprint dengan corak khas tumbuhan tropis.' },
-    { id:'PRD004', nama:'Ecoprint 4', kategori:'Kain/Bahan Ecoprint', harga:175000, stok:8, foto:'src/produk/ecoprint 4.jpeg', deskripsi:'Kain ecoprint premium motif flora dengan warna earthy.' },
-    { id:'PRD005', nama:'Kain Ecoprint Motif', kategori:'Kain/Bahan Ecoprint', harga:175000, stok:8, foto:'src/produk/product 1 (kain).jpeg', deskripsi:'Kain ecoprint dengan motif alami hasil teknik pewarnaan tradisional.' },
-    { id:'PRD006', nama:'Dress Pantai Wanita', kategori:'Dress', harga:225000, stok:12, foto:'src/produk/Dreess Pantai Wanita.jpeg', deskripsi:'Dress pantai wanita bahan adem, motif ecoprint natural.' },
+    { id:'PRD003', nama:'Banner Ecoprint 2', kategori:'Kain/Bahan Ecoprint', harga:150000, stok:10, foto:'src/produk/banner ecoprint 2.jpg', deskripsi:'Kain banner ecoprint dengan corak khas tumbuhan tropis.' },
+    { id:'PRD004', nama:'Ecoprint 4', kategori:'Kain/Bahan Ecoprint', harga:175000, stok:8, foto:'src/produk/ecoprint 4.jpg', deskripsi:'Kain ecoprint premium motif flora dengan warna earthy.' },
+    { id:'PRD005', nama:'Kain Ecoprint Motif', kategori:'Kain/Bahan Ecoprint', harga:175000, stok:8, foto:'src/produk/produk 1(kain).jpg', deskripsi:'Kain ecoprint dengan motif alami hasil teknik pewarnaan tradisional.' },
+    { id:'PRD006', nama:'Dress Pantai Wanita', kategori:'Dress', harga:225000, stok:12, foto:'src/produk/Gaun Pantai Wanita.jpeg', deskripsi:'Dress pantai wanita bahan adem, motif ecoprint natural.' },
     { id:'PRD007', nama:'Dress Wanita Hitam Eco Print', kategori:'Dress', harga:235000, stok:10, foto:'src/produk/Dress Wanita Hitam Eco Print.jpeg', deskripsi:'Dress hitam elegan dengan aksen ecoprint natural.' },
     { id:'PRD008', nama:'Gamis Eco Print', kategori:'Gamis', harga:285000, stok:8, foto:'src/produk/Gamis eco print.jpeg', deskripsi:"Gamis ecoprint syar'i dengan motif alami, nyaman dipakai harian." },
     { id:'PRD009', nama:'Gamis Motif Reflesia Eco Print', kategori:'Gamis', harga:295000, stok:6, foto:'src/produk/Gamis Motif REflesia Eco print.jpeg', deskripsi:'Gamis motif Rafflesia khas, karya ecoprint premium.' },
     { id:'PRD010', nama:'Gaun Wanita EcoPrint', kategori:'Gaun', harga:315000, stok:5, foto:'src/produk/Gaun Wanita EcoPrint.jpeg', deskripsi:'Gaun wanita ecoprint dengan siluet elegan untuk acara spesial.' },
     { id:'PRD011', nama:'Rompi Wanita EcoPrint', kategori:'Rompi', harga:185000, stok:10, foto:'src/produk/rompi wanita EcoPrint.jpeg', deskripsi:'Rompi wanita ecoprint, cocok untuk outfit layering.' },
-    { id:'PRD012', nama:'Kaos EcoPrint Motif Bambu', kategori:'Kaos', harga:145000, stok:20, foto:'src/produk/Kaos EcoPrint Motif Bambu.jpeg', deskripsi:'Kaos katun dengan motif bambu hasil ecoprint alami.' },
+    { id:'PRD012', nama:'Kaos EcoPrint Motif Bambu', kategori:'Kaos', harga:145000, stok:20, foto:'src/produk/Kaos EcoPrint Motif Bambo.jpeg', deskripsi:'Kaos katun dengan motif bambu hasil ecoprint alami.' },
     { id:'PRD013', nama:'Kaos Motif Daun Ketapang', kategori:'Kaos', harga:145000, stok:18, foto:'src/produk/Kaos Motif Daun Ketapang.jpeg', deskripsi:'Kaos dengan motif daun ketapang khas ecoprint.' },
     { id:'PRD014', nama:'Kaos Oblong Eco Print Putih', kategori:'Kaos', harga:135000, stok:22, foto:'src/produk/kaos Oblong Eco Print Putih.jpeg', deskripsi:'Kaos oblong putih dengan aksen ecoprint minimalis.' },
-    { id:'PRD015', nama:'Kemeja Eco Print Sabang', kategori:'Kemeja', harga:245000, stok:10, foto:'src/produk/Kemeja Eco Print Sabang.jpeg', deskripsi:'Kemeja ecoprint khas Sabang, motif natural dan elegan.' },
+    { id:'PRD015', nama:'Kemeja Eco Print Sabang', kategori:'Kemeja', harga:245000, stok:10, foto:'src/produk/Kemeja Eco Print, Sabang.jpeg', deskripsi:'Kemeja ecoprint khas Sabang, motif natural dan elegan.' },
     { id:'PRD016', nama:'Kemeja Laki-Laki Eco Print', kategori:'Kemeja', harga:255000, stok:12, foto:'src/produk/Kemeja Laki Eco print.jpeg', deskripsi:'Kemeja pria ecoprint, cocok untuk formal maupun kasual.' },
     { id:'PRD017', nama:'Kemeja Wanita Ecoprint', kategori:'Kemeja', harga:235000, stok:10, foto:'src/produk/Kemeja Wanita Ecoprint.jpeg', deskripsi:'Kemeja wanita ecoprint dengan potongan modern.' },
-    { id:'PRD018', nama:'Kimono Eco Print', kategori:'Kimono', harga:315000, stok:5, foto:'src/produk/KImono eco Print.jpeg', deskripsi:'Kimono ecoprint dengan motif tumbuhan tropis.' },
-    { id:'PRD019', nama:'Kimono Jepang EcoPrint', kategori:'Kimono', harga:335000, stok:4, foto:'src/produk/KImono Jepang, EcoPrint.jpeg', deskripsi:'Kimono jepang eco print, perpaduan budaya Jepang dan alam Nusantara.' },
-    { id:'PRD020', nama:'Totebag Ecoprint', kategori:'Totebag', harga:125000, stok:15, foto:'src/produk/product2 (tootbag).png', deskripsi:'Totebag kanvas ecoprint, ramah lingkungan dan stylish.' },
-    { id:'PRD021', nama:'Totebag Ecoprint Motif Bunga', kategori:'Totebag', harga:135000, stok:12, foto:'src/produk/Product3 (totbag).jpeg', deskripsi:'Totebag ecoprint motif bunga alami, cocok untuk aktivitas harian.' },
-    { id:'PRD022', nama:'Totebag Ecoprint 2', kategori:'Totebag', harga:125000, stok:14, foto:'src/produk/Product4 (tootbag).jpeg', deskripsi:'Totebag ecoprint dengan motif unik hasil pewarnaan alami.' },
-    { id:'PRD023', nama:'Totebag Ecoprint Motif', kategori:'Totebag', harga:135000, stok:10, foto:'src/produk/product 1 (tootbag).jpeg', deskripsi:'Totebag ecoprint dengan motif khas Nusantara.' },
+    { id:'PRD018', nama:'Kimono Eco Print', kategori:'Kimono', harga:315000, stok:5, foto:'src/produk/Kimono eco Print.jpeg', deskripsi:'Kimono ecoprint dengan motif tumbuhan tropis.' },
+    { id:'PRD019', nama:'Kimono Jepang EcoPrint', kategori:'Kimono', harga:335000, stok:4, foto:'src/produk/Kimono Jepang, EcoPrint.jpeg', deskripsi:'Kimono jepang eco print, perpaduan budaya Jepang dan alam Nusantara.' },
+    { id:'PRD020', nama:'Totebag Ecoprint', kategori:'Totebag', harga:125000, stok:15, foto:'src/produk/produk2 (tas jinjing).png', deskripsi:'Totebag kanvas ecoprint, ramah lingkungan dan stylish.' },
+    { id:'PRD021', nama:'Totebag Ecoprint Motif Bunga', kategori:'Totebag', harga:135000, stok:12, foto:'src/produk/Produk3 (tas belanja).jpg', deskripsi:'Totebag ecoprint motif bunga alami, cocok untuk aktivitas harian.' },
+    { id:'PRD022', nama:'Totebag Ecoprint 2', kategori:'Totebag', harga:125000, stok:14, foto:'src/produk/Produk4 (tas jinjing).jpg', deskripsi:'Totebag ecoprint dengan motif unik hasil pewarnaan alami.' },
+    { id:'PRD023', nama:'Totebag Ecoprint Motif', kategori:'Totebag', harga:135000, stok:10, foto:'src/produk/produk 1 (tootbag).jpeg', deskripsi:'Totebag ecoprint dengan motif khas Nusantara.' },
     { id:'PRD024', nama:'Totebag Wanita Motif Daun Ubi', kategori:'Totebag', harga:145000, stok:8, foto:'src/produk/Tootbag Wanita Motif Daun Ubi.jpeg', deskripsi:'Totebag wanita motif daun ubi hasil ecoprint alami.' }
 ];
 
@@ -302,24 +302,11 @@ const DB = {
 const PhotoStorage = {
     getAll() { return DB.get('photos', {}); },
     get(productId) { return this.getAll()[productId] || null; },
-    set(productId, dataUrl) {
-        const all = this.getAll();
-        all[productId] = dataUrl;
-        return DB.set('photos', all);
-    },
-    remove(productId) {
-        const all = this.getAll();
-        delete all[productId];
-        DB.set('photos', all);
-    },
+    set(productId, dataUrl) { const all = this.getAll(); all[productId] = dataUrl; return DB.set('photos', all); },
+    remove(productId) { const all = this.getAll(); delete all[productId]; DB.set('photos', all); },
     clear() { DB.set('photos', {}); },
     count() { return Object.keys(this.getAll()).length; },
-    sizeKB() {
-        const all = this.getAll();
-        let total = 0;
-        Object.values(all).forEach(v => total += v.length);
-        return Math.round(total / 1024);
-    },
+    sizeKB() { const all = this.getAll(); let total = 0; Object.values(all).forEach(v => total += v.length); return Math.round(total / 1024); },
     has(productId) { return !!this.get(productId); }
 };
 
@@ -338,14 +325,11 @@ const Helpers = {
         return prefix + String(todayTrx.length + 1).padStart(3,'0');
     },
     stockStatus(stok) { if (stok <= 0) return { label: 'Habis', class: 'badge-danger' }; if (stok <= 5) return { label: 'Stok Menipis', class: 'badge-warning' }; return { label: 'Tersedia', class: 'badge-success' }; },
-
     slugify(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); },
 
     fileToDataUrl(file, maxDim = 800, quality = 0.8) {
         return new Promise((resolve, reject) => {
-            if (!file || !file.type || !/^image\//.test(file.type)) {
-                reject(new Error('Bukan file gambar')); return;
-            }
+            if (!file || !file.type || !/^image\//.test(file.type)) { reject(new Error('Bukan file gambar')); return; }
             const reader = new FileReader();
             reader.onload = e => {
                 const img = new Image();
@@ -353,11 +337,7 @@ const Helpers = {
                     try {
                         const canvas = document.createElement('canvas');
                         let w = img.width, h = img.height;
-                        if (w > maxDim || h > maxDim) {
-                            const r = Math.min(maxDim / w, maxDim / h);
-                            w = Math.round(w * r);
-                            h = Math.round(h * r);
-                        }
+                        if (w > maxDim || h > maxDim) { const r = Math.min(maxDim / w, maxDim / h); w = Math.round(w * r); h = Math.round(h * r); }
                         canvas.width = w; canvas.height = h;
                         const ctx = canvas.getContext('2d');
                         ctx.fillStyle = '#ffffff';
@@ -449,42 +429,25 @@ const Helpers = {
         return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
     },
 
-    // PERBAIKAN: Ultimate Fallback. Mencoba semua folder dan semua ekstensi huruf besar/kecil
     imgFallback(el) {
         if (el.getAttribute('data-fallback-done') === 'true') return;
-        
         let attempts = parseInt(el.getAttribute('data-attempts') || '0');
         const name = el.getAttribute('data-name') || 'Produk Ecoprint';
         const cat  = el.getAttribute('data-cat')  || 'Ecoprint Sabang';
-        
         let originalSrc = el.getAttribute('data-original-src');
-        if (!originalSrc) {
-            originalSrc = el.src;
-            el.setAttribute('data-original-src', originalSrc);
-        }
-        
-        // Ambil nama file asli (tanpa folder dan tanpa ekstensi)
+        if (!originalSrc) { originalSrc = el.src; el.setAttribute('data-original-src', originalSrc); }
         let decodedSrc = decodeURIComponent(originalSrc);
         let filenameWithExt = decodedSrc.split('/').pop();
         let filename = filenameWithExt.replace(/\.[^/.]+$/, "");
-        
-        // Kombinasi folder dan ekstensi yang akan dicoba
         const exts = ['jpeg', 'jpg', 'png', 'JPG', 'JPEG', 'PNG', 'webp', 'WEBP'];
         const dirs = ['src/produk/', 'produk/', './', ''];
-        
         let combos = [];
-        for (let d of dirs) {
-            for (let e of exts) {
-                combos.push(d + filename + '.' + e);
-            }
-        }
-        
+        for (let d of dirs) { for (let e of exts) { combos.push(d + filename + '.' + e); } }
         if (attempts < combos.length) {
             let nextPath = combos[attempts];
             el.src = encodeURI(nextPath);
             el.setAttribute('data-attempts', attempts + 1);
         } else {
-            // Jika semua kombinasi gagal, tampilkan gambar ilustrasi SVG
             el.setAttribute('data-fallback-done', 'true');
             el.onerror = null;
             el.src = Helpers.productIllustration(name, cat);
@@ -534,6 +497,8 @@ const State = {
             localStorage.removeItem('ecoprint_products');
             localStorage.removeItem('ecoprint_cart');
             localStorage.removeItem('ecoprint_admin_session');
+            localStorage.removeItem('ecoprint_stockMovements');
+            localStorage.removeItem('ecoprint_transactions');
             localStorage.setItem('ecoprint_app_version', APP_VERSION);
         }
         this.seedAdmin();
@@ -593,9 +558,7 @@ const State = {
             } else {
                 Toast.error('❌ Penyimpanan penuh! Coba foto lebih kecil.');
             }
-        } catch (e) {
-            Toast.error('Gagal: ' + e.message);
-        }
+        } catch (e) { Toast.error('Gagal: ' + e.message); }
     },
 
     async uploadFolderPhotos(files) {
@@ -604,24 +567,17 @@ const State = {
         const products = DB.get('products', []);
         const images = list.filter(f => f.type && /^image\//.test(f.type));
         if (images.length === 0) { Toast.error('Tidak ada file gambar.'); return; }
-
         Toast.info(`⏳ Memproses ${images.length} foto...`);
         let matched = 0, failed = 0;
         const unmatched = [];
-
         for (const file of images) {
             const p = this._matchProductToFile(file, products);
             if (!p) { unmatched.push(file.name); continue; }
             try {
                 const dataUrl = await Helpers.fileToDataUrl(file);
-                if (PhotoStorage.set(p.id, dataUrl)) matched++;
-                else failed++;
-            } catch (e) {
-                console.warn('Gagal:', file.name, e);
-                failed++;
-            }
+                if (PhotoStorage.set(p.id, dataUrl)) matched++; else failed++;
+            } catch (e) { console.warn('Gagal:', file.name, e); failed++; }
         }
-
         if (matched > 0) Toast.success(`✅ ${matched} foto berhasil dimuat!`);
         if (failed > 0) Toast.warning(`${failed} foto gagal (storage penuh / file rusak)`);
         if (unmatched.length > 0) {
@@ -820,9 +776,7 @@ const Render = {
         if (localPhoto) return escapeHtml(localPhoto);
         const raw = (p.foto && String(p.foto).trim()) ? String(p.foto).trim() : '';
         if (!raw) return escapeHtml(Helpers.productIllustration(p.nama, p.kategori));
-        
         if (/^(https?:|data:|blob:|\/\/|\/|src\/)/i.test(raw)) return escapeHtml(encodeURI(raw));
-        
         const folder = (State.getSettings().fotoFolder || 'src/produk/').trim();
         const sep = folder.endsWith('/') ? '' : '/';
         return escapeHtml(encodeURI(folder + sep + raw.replace(/^\.?\//, '')));
@@ -1252,7 +1206,6 @@ const Render = {
     },
 
     showAddProduct() {
-        const folder = State.getSettings().fotoFolder || 'src/produk/';
         Modal.open(`
             <div class="modal-header"><h2>➕ Tambah Produk</h2><span class="modal-close" onclick="Modal.close()">×</span></div>
             <form onsubmit="return State.saveProduct(event)">
@@ -1334,7 +1287,7 @@ window.PhotoStorage = PhotoStorage;
 State.seedBanks();
 State.init();
 
-console.log('🌿 ecoprint store v2.9 — Ultimate Auto-Fix Aktif');
+console.log('🌿 ecoprint store v2.10 — Foto produk sesuai daftar upload');
 console.log('Login Admin: admin / admin123');
 console.log('Total produk: ' + DB.get('products', []).length);
 </script>
